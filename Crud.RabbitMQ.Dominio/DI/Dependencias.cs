@@ -1,4 +1,8 @@
-﻿namespace Crud.RabbitMQ.Dominio.DI
+﻿using Crud.RabbitMQ.Dominio.Helpers;
+using Microsoft.Extensions.Options;
+using static Crud.RabbitMQ.Dominio.Helpers.Configuracoes;
+
+namespace Crud.RabbitMQ.Dominio.DI
 {
     public static class Dependencias
     {
@@ -27,5 +31,9 @@
             }
         }
 
+        public static Configuracoes ConnectionString
+        {
+            get { return Resolver.GetService<IOptions<Configuracoes>>().Value; }
+        }
     }
 }
