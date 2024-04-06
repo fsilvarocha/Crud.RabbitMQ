@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Crud.RabbitMQ.Dominio.DI
+﻿namespace Crud.RabbitMQ.Dominio.DI
 {
     public interface IResolver
     {
+        T GetService<T>();
     }
 }

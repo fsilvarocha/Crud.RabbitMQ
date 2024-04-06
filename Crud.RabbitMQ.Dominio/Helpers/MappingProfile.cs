@@ -1,6 +1,12 @@
-﻿namespace Crud.RabbitMQ.Dominio.Helpers
+﻿using AutoMapper;
+
+namespace Crud.RabbitMQ.Dominio.Helpers
 {
-    public class MappingProfile
+    public class MappingProfile : Profile
     {
+        public MappingProfile()
+        {
+
+        }
     }
 }
