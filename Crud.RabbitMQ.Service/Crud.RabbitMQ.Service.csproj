@@ -10,8 +10,4 @@
     <ProjectReference Include="..\Crud.RabbitMQ.Dominio\Crud.RabbitMQ.Dominio.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Servicos\Interface\" />
-  </ItemGroup>
-
 </Project>

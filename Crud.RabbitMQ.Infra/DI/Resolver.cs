@@ -1,6 +1,10 @@
 ﻿using Crud.RabbitMQ.Dominio.DI;
 using Crud.RabbitMQ.Dominio.Helpers;
+using Crud.RabbitMQ.Dominio.Interfaces;
 using Crud.RabbitMQ.Infra.Context;
+using Crud.RabbitMQ.Infra.Repository;
+using Crud.RabbitMQ.Service.Servicos;
+using Crud.RabbitMQ.Service.Servicos.Interface;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,24 +37,27 @@ namespace Crud.RabbitMQ.Infra.DI
 
         private static void ConfiguraIntegracoes(IServiceCollection services, IConfiguration configuration)
         {
-            throw new NotImplementedException();
+           
         }
 
         private static void ConfiguraRepositorios(IServiceCollection services)
         {
-            throw new NotImplementedException();
+            services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<ICategoriaRepository, CategoriaRepository>();
         }
 
         private static void ConfiguraServicos(IServiceCollection services)
         {
-            throw new NotImplementedException();
+            services.AddScoped<IProdutoService, ProdutoService>();
+            services.AddScoped<ICategoriaService, CategoriaService>();
         }
 
         private static void ConfiguraDatabase(IServiceCollection services)
         {
+            var ret = GetConfiguration<ConnectionString>("ConnectionStrings").Connection;
             services.AddDbContext<ContextToLogado>(options =>
             {
-                options.UseSqlServer(GetConfiguration<ConnectionString>("ConnectionString").Connection)
+                options.UseSqlServer(GetConfiguration<ConnectionString>("ConnectionStrings").Connection)
                 .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
                 options.EnableSensitiveDataLogging();
             });
@@ -62,7 +69,7 @@ namespace Crud.RabbitMQ.Infra.DI
         private static T GetConfiguration<T>(string secao)
         {
             return new ConfigurationBuilder().SetBasePath(AppContext.BaseDirectory)
-                .AddJsonFile("appsetings.json")
+                .AddJsonFile("appsettings.json")
                 .Build()
                 .GetSection(secao)
                 .Get<T>();
