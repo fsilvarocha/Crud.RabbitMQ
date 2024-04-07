@@ -27,21 +27,24 @@ public class MessageBus : IMessageBus
             #region Exchanges
             var cadastroProdutoExchange = _advancedBus.ExchangeDeclare(ExchangesNames.NewCadastroProduto, ExchangeType.Topic);
             var cadastroCategoriaExchange = _advancedBus.ExchangeDeclare(ExchangesNames.NewCadastroCategoria, ExchangeType.Topic);
+            var weatherExchange = _advancedBus.ExchangeDeclare(ExchangesNames.NewWeatherForecast, ExchangeType.Topic);
             #endregion
 
             #region Queues
             var cadastroProdutoFila = _advancedBus.QueueDeclare(QueuesNames.New_CadastroProduto);
             var cadastroCategoriaFila = _advancedBus.QueueDeclare(QueuesNames.New_CadastroCategoria);
+            var weatherFila = _advancedBus.QueueDeclare(QueuesNames.New_Weather);
             #endregion
 
             #region Binds
             _advancedBus.Bind(cadastroProdutoExchange, cadastroCategoriaFila, RountingKeysNames.Produto);
             _advancedBus.Bind(cadastroCategoriaExchange, cadastroCategoriaFila, RountingKeysNames.Categoria);
+            _advancedBus.Bind(weatherExchange, weatherFila, RountingKeysNames.Weather);
             #endregion
         }
         catch (Exception ex)
         {
-            
+
             throw new Exception(ex.Message);
         }
 
