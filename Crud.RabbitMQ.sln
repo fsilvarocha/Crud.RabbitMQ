@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crud.RabbitMQ.Infra", "Crud.RabbitMQ.Infra\Crud.RabbitMQ.Infra.csproj", "{DCAE8BFD-170A-4191-A54F-089CE88358C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crud.RabbitMQ.Infra", "Crud.RabbitMQ.Infra\Crud.RabbitMQ.Infra.csproj", "{DCAE8BFD-170A-4191-A54F-089CE88358C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crud.RabbitMQ.Dominio", "Crud.RabbitMQ.Dominio\Crud.RabbitMQ.Dominio.csproj", "{813A370F-C99A-4532-B2B7-359B8C91D8DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crud.RabbitMQ.Dominio", "Crud.RabbitMQ.Dominio\Crud.RabbitMQ.Dominio.csproj", "{813A370F-C99A-4532-B2B7-359B8C91D8DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crud.RabbitMQ.API", "Crud.RabbitMQ.API\Crud.RabbitMQ.API.csproj", "{E06F766C-E71D-4257-907C-A1800FD5DAE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crud.RabbitMQ.API", "Crud.RabbitMQ.API\Crud.RabbitMQ.API.csproj", "{E06F766C-E71D-4257-907C-A1800FD5DAE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crud.RabbitMQ.Service", "Crud.RabbitMQ.Service\Crud.RabbitMQ.Service.csproj", "{45F292CF-58E7-49CE-A3C6-17349E6B20F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crud.RabbitMQ.Service", "Crud.RabbitMQ.Service\Crud.RabbitMQ.Service.csproj", "{45F292CF-58E7-49CE-A3C6-17349E6B20F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crud.RabbitMQ.Bus", "Crud.RabbitMQ.Bus\Crud.RabbitMQ.Bus.csproj", "{587DBBF7-D898-4552-85E5-6BD91810BCC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{45F292CF-58E7-49CE-A3C6-17349E6B20F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45F292CF-58E7-49CE-A3C6-17349E6B20F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45F292CF-58E7-49CE-A3C6-17349E6B20F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{587DBBF7-D898-4552-85E5-6BD91810BCC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{587DBBF7-D898-4552-85E5-6BD91810BCC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{587DBBF7-D898-4552-85E5-6BD91810BCC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{587DBBF7-D898-4552-85E5-6BD91810BCC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
