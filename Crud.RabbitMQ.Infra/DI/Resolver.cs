@@ -1,4 +1,5 @@
-﻿using Crud.RabbitMQ.Dominio.DI;
+﻿using Crud.RabbitMQ.Bus;
+using Crud.RabbitMQ.Dominio.DI;
 using Crud.RabbitMQ.Dominio.Helpers;
 using Crud.RabbitMQ.Dominio.Interfaces;
 using Crud.RabbitMQ.Infra.Context;
@@ -27,7 +28,14 @@ namespace Crud.RabbitMQ.Infra.DI
             ConfiguraServicos(services);
             ConfiguraRepositorios(services);
             ConfiguraIntegracoes(services, configuration);
+            ConfiguraRabbitMq(services);
             ConfiguraAutoMapperConfiguration(services);
+        }
+
+        private static void ConfiguraRabbitMq(IServiceCollection services)
+        {
+            var connection = GetConfiguration<ConnectionString>("ConnectionStrings").MessageBus;
+            services.AddSingleton((IMessageBus)new MessageBus(connection));
         }
 
         private static void ConfiguraAutoMapperConfiguration(IServiceCollection services)
@@ -37,7 +45,7 @@ namespace Crud.RabbitMQ.Infra.DI
 
         private static void ConfiguraIntegracoes(IServiceCollection services, IConfiguration configuration)
         {
-           
+
         }
 
         private static void ConfiguraRepositorios(IServiceCollection services)
@@ -54,7 +62,7 @@ namespace Crud.RabbitMQ.Infra.DI
 
         private static void ConfiguraDatabase(IServiceCollection services)
         {
-            var ret = GetConfiguration<ConnectionString>("ConnectionStrings").Connection;
+
             services.AddDbContext<ContextToLogado>(options =>
             {
                 options.UseSqlServer(GetConfiguration<ConnectionString>("ConnectionStrings").Connection)
